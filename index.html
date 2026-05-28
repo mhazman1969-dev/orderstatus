@@ -414,7 +414,6 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav>
         <div class="brand">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
@@ -422,16 +421,13 @@
         </div>
         <div class="nav-actions">
             <button class="btn-icon" id="themeToggle" title="Toggle Theme">
-                <!-- Moon Icon (Default) -->
                 <svg id="moonIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <!-- Sun Icon (Hidden by default) -->
                 <svg id="sunIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
             </button>
             <button class="btn-primary" id="logoutBtn" style="display: none;">Logout</button>
         </div>
     </nav>
 
-    <!-- Auth Section -->
     <section id="authSection" class="view-section active">
         <div class="auth-container">
             <div class="auth-card">
@@ -452,11 +448,9 @@
         </div>
     </section>
 
-    <!-- Dashboard Section -->
     <section id="dashboardSection" class="view-section">
         <div class="dashboard-grid">
             
-            <!-- Price Calculator Card (Left) -->
             <div class="card">
                 <div class="card-header">
                     <h3>Price Calculator</h3>
@@ -494,7 +488,6 @@
                 </div>
             </div>
             
-            <!-- Add Order Form (Middle) -->
             <div class="card">
                 <div class="card-header">
                     <h3>Create New Order</h3>
@@ -526,7 +519,6 @@
                 </form>
             </div>
 
-            <!-- Orders List (Right) -->
             <div class="card">
                 <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                     <h3>Recent Orders</h3>
@@ -545,8 +537,7 @@
                             </tr>
                         </thead>
                         <tbody id="ordersBody">
-                            <!-- Orders will be injected here -->
-                        </tbody>
+                            </tbody>
                     </table>
                     <div id="emptyState" class="empty-state">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="margin-bottom: 1rem; color: var(--text-muted);">
@@ -560,36 +551,48 @@
         </div>
     </section>
 
-    <!-- Toast Container -->
     <div id="toast-container"></div>
 
-    <script>
-        // --- State Management ---
-        let orders = []; // Sequential order history state
-        let nextOrderIdNum = 0; // Starts from ORD-0000 and increments sequentially
-        let calcExpression = ''; // Holds active calculator expression
+    <script type="module">
+        // --- Firebase Initialization ---
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
+        // Import Firestore functions here if needed in the future
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDTSLH1ndEDlfiXLo7TvT4PxB4eAIovdaw",
+            authDomain: "order-status-bd55b.firebaseapp.com",
+            projectId: "order-status-bd55b",
+            storageBucket: "order-status-bd55b.firebasestorage.app",
+            messagingSenderId: "806311450965",
+            appId: "1:806311450965:web:87b96e78c72c5afe7737dc",
+            measurementId: "G-BNL8GW6H4C"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        // --- App Logic ---
+        let orders = [];
+        let nextOrderIdNum = 0;
+        let calcExpression = '';
         
-        // --- DOM Elements ---
         const themeToggle = document.getElementById('themeToggle');
         const moonIcon = document.getElementById('moonIcon');
         const sunIcon = document.getElementById('sunIcon');
-        
         const authSection = document.getElementById('authSection');
         const dashboardSection = document.getElementById('dashboardSection');
         const loginForm = document.getElementById('loginForm');
         const logoutBtn = document.getElementById('logoutBtn');
-        
         const orderForm = document.getElementById('orderForm');
         const ordersBody = document.getElementById('ordersBody');
         const emptyState = document.getElementById('emptyState');
         const totalOrdersCount = document.getElementById('totalOrdersCount');
 
-        // --- Theme Switcher Logic ---
         function toggleTheme() {
             const currentTheme = document.body.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.body.setAttribute('data-theme', newTheme);
-            
             if (newTheme === 'dark') {
                 moonIcon.style.display = 'none';
                 sunIcon.style.display = 'block';
@@ -600,14 +603,10 @@
         }
         themeToggle.addEventListener('click', toggleTheme);
 
-        // --- Auth Logic ---
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
             const email = document.getElementById('emailInput').value;
             const password = document.getElementById('passwordInput').value;
-            
-            // Validate credentials
             if (email === 'admin@ordernova.com' && password === 'admin123') {
                 authSection.classList.remove('active');
                 dashboardSection.classList.add('active');
@@ -615,7 +614,7 @@
                 showToast('Successfully logged in!', 'success');
                 renderOrders();
             } else {
-                alert('Invalid email or password. Please try again.');
+                alert('Invalid email or password.');
             }
         });
 
@@ -626,259 +625,91 @@
             loginForm.reset();
         });
 
-        // --- Calculator Logic ---
-        window.inputCalc = function(char) {
+        // Toast Helper
+        function showToast(message, type) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast`;
+            toast.textContent = message;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Calculator Logic
+        window.inputCalc = (char) => {
             const display = document.getElementById('calcDisplay');
-            if (display.value === '0' && !isNaN(char)) {
-                calcExpression = char;
-            } else {
-                calcExpression += char;
-            }
+            if (display.value === '0' && !isNaN(char)) calcExpression = char;
+            else calcExpression += char;
             display.value = calcExpression;
         };
-
-        window.clearCalc = function() {
+        window.clearCalc = () => {
             calcExpression = '';
             document.getElementById('calcDisplay').value = '0';
         };
-
-        window.backspaceCalc = function() {
-            const display = document.getElementById('calcDisplay');
+        window.backspaceCalc = () => {
             calcExpression = calcExpression.slice(0, -1);
-            display.value = calcExpression || '0';
+            document.getElementById('calcDisplay').value = calcExpression || '0';
         };
-
-        window.calculateResult = function() {
+        window.calculateResult = () => {
             const display = document.getElementById('calcDisplay');
             try {
                 if (!calcExpression) return;
-                // Sanitize mathematical characters only
                 const sanitized = calcExpression.replace(/[^0-9+\-*/.]/g, '');
                 const result = Function(`"use strict"; return (${sanitized})`)();
-                
                 if (result !== undefined && !isNaN(result)) {
                     calcExpression = String(Number(result.toFixed(2)));
                     display.value = calcExpression;
-                } else {
-                    throw new Error();
                 }
-            } catch (e) {
-                display.value = 'Error';
-                calcExpression = '';
-            }
+            } catch (e) { display.value = 'Error'; calcExpression = ''; }
         };
-
-        window.applyCalcToPrice = function() {
+        window.applyCalcToPrice = () => {
             const display = document.getElementById('calcDisplay');
             const priceInput = document.getElementById('totalPrice');
-            
-            // Resolve active expression first
             calculateResult();
-            
             const val = parseFloat(display.value);
             if (!isNaN(val) && val >= 0) {
                 priceInput.value = val.toFixed(2);
-                showToast(`Applied RM ${val.toFixed(2)} to Total Price!`, 'success');
-            } else {
-                showToast(`Invalid amount to apply.`, 'warning');
+                showToast(`Applied RM ${val.toFixed(2)}`, 'success');
             }
         };
 
-        // --- Order Management Logic ---
-        
         // Render Orders
         function renderOrders() {
             ordersBody.innerHTML = '';
             totalOrdersCount.textContent = `${orders.length} Order${orders.length !== 1 ? 's' : ''}`;
-            
             if (orders.length === 0) {
                 emptyState.style.display = 'block';
                 return;
             }
-            
             emptyState.style.display = 'none';
-            
             orders.forEach((order, index) => {
                 const tr = document.createElement('tr');
-                
-                // Payment Badge Logic
-                const payBadgeClass = order.paymentStatus === 'Paid' ? 'badge-success' : 'badge-danger';
-                
-                // Delivery Badge Logic
-                const delBadgeClass = order.deliveryStatus === 'Delivered' ? 'badge-success' : 'badge-warning';
-                
-                // Build Delivery status representation with Google Maps coordinates and GMT+8 timestamp
-                let deliveryStatusContent = `<span class="badge ${delBadgeClass}">${order.deliveryStatus}</span>`;
-                if (order.deliveryStatus === 'Delivered') {
-                    deliveryStatusContent += `
-                        <div class="delivery-details">
-                            <a href="${order.deliveryLocation || '#'}" target="_blank">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                Locked Location
-                            </a>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
-                                🕒 ${order.deliveryTime || ''}
-                            </div>
-                        </div>
-                    `;
-                }
-
-                // Create clean layout for Actions
-                let actionsHtml = `<div class="action-container">`;
-                let hasActions = false;
-
-                // Action 1: Update Payment Status button (Only show if Unpaid)
-                if (order.paymentStatus === 'Unpaid') {
-                    actionsHtml += `<button class="btn-small btn-success" onclick="payOrder(${index})">Mark Paid</button>`;
-                    hasActions = true;
-                }
-
-                // Action 2: Deliver button (Only show if Pending)
-                if (order.deliveryStatus === 'Pending') {
-                    actionsHtml += `<button class="btn-small" onclick="deliverOrder(${index})">Deliver</button>`;
-                    hasActions = true;
-                }
-
-                if (!hasActions) {
-                    actionsHtml += `<span style="color: var(--text-muted); font-size: 0.8rem; font-weight: 500;">Completed</span>`;
-                }
-                
-                actionsHtml += `</div>`;
-
                 tr.innerHTML = `
                     <td><strong>${order.id}</strong></td>
-                    <td>
-                        <div style="font-weight: 500; max-width: 250px; word-break: break-word;">${order.address}</div>
-                    </td>
-                    <td style="font-weight: 600;">RM ${parseFloat(order.price).toFixed(2)}</td>
-                    <td>
-                        <div style="margin-bottom: 4px; font-weight: 500;">${order.method}</div>
-                        <span class="badge ${payBadgeClass}">${order.paymentStatus}</span>
-                    </td>
-                    <td>${deliveryStatusContent}</td>
-                    <td>${actionsHtml}</td>
+                    <td>${order.address}</td>
+                    <td>RM ${parseFloat(order.price).toFixed(2)}</td>
+                    <td>${order.paymentStatus}</td>
+                    <td>${order.deliveryStatus}</td>
+                    <td><button class="btn-small" onclick="alert('Action clicked')">Action</button></td>
                 `;
                 ordersBody.appendChild(tr);
             });
         }
 
-        // Add New Order
         orderForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Format ID sequentially (starting from ORD-0000)
-            const orderId = 'ORD-' + String(nextOrderIdNum).padStart(4, '0');
-            nextOrderIdNum++;
-
             const newOrder = {
-                id: orderId,
+                id: 'ORD-' + String(nextOrderIdNum++).padStart(4, '0'),
                 address: document.getElementById('custAddress').value,
                 price: document.getElementById('totalPrice').value,
-                method: document.getElementById('payMethod').value,
                 paymentStatus: document.getElementById('payStatus').value,
-                deliveryStatus: 'Pending',
-                deliveryTime: null,
-                deliveryLocation: null
+                deliveryStatus: 'Pending'
             };
-            
-            // Add to top of array
             orders.unshift(newOrder);
             renderOrders();
             orderForm.reset();
-            
-            showToast(`Order ${newOrder.id} created successfully!`, 'success');
+            showToast('Order added!', 'success');
         });
-
-        // Update Payment Status
-        window.payOrder = function(index) {
-            orders[index].paymentStatus = 'Paid';
-            renderOrders();
-            showToast(`Order ${orders[index].id} payment marked as Paid.`, 'success');
-        };
-
-        // Mark as Delivered (Locks Location & GMT+8 timestamp)
-        window.deliverOrder = function(index) {
-            // Setup GMT+8 Current Time
-            const now = new Date();
-            const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
-            const gmt8Time = new Date(utcTime + (3600000 * 8));
-            
-            // Format time clean: YYYY-MM-DD HH:MM:SS GMT+8
-            const formattedTime = gmt8Time.getFullYear() + '-' +
-                String(gmt8Time.getMonth() + 1).padStart(2, '0') + '-' +
-                String(gmt8Time.getDate()).padStart(2, '0') + ' ' +
-                String(gmt8Time.getHours()).padStart(2, '0') + ':' +
-                String(gmt8Time.getMinutes()).padStart(2, '0') + ':' +
-                String(gmt8Time.getSeconds()).padStart(2, '0') + ' GMT+8';
-
-            // Check and request geolocation coordinates with high accuracy options
-            if (navigator.geolocation) {
-                const geoOptions = {
-                    enableHighAccuracy: true,
-                    timeout: 10000,
-                    maximumAge: 0
-                };
-
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        const lat = position.coords.latitude;
-                        const lon = position.coords.longitude;
-                        orders[index].deliveryLocation = `https://www.google.com/maps?q=${lat},${lon}`;
-                        executeDeliveryState(index, formattedTime);
-                    },
-                    (error) => {
-                        // User denied geolocation or fallback. Use default (Teluk Intan coordinates)
-                        orders[index].deliveryLocation = `https://www.google.com/maps?q=4.0027,101.0195`;
-                        executeDeliveryState(index, formattedTime);
-                        showToast(`Deliver locked with default coordinates.`, 'warning');
-                    },
-                    geoOptions
-                );
-            } else {
-                // Browser doesn't support geolocation
-                orders[index].deliveryLocation = `https://www.google.com/maps?q=4.0027,101.0195`;
-                executeDeliveryState(index, formattedTime);
-            }
-        };
-
-        // Finalise delivery state change
-        function executeDeliveryState(index, timestamp) {
-            orders[index].deliveryStatus = 'Delivered';
-            orders[index].deliveryTime = timestamp;
-            
-            // If it was Cash (COD) and Unpaid, auto mark as Paid upon delivery
-            if (orders[index].method === 'Cash' && orders[index].paymentStatus === 'Unpaid') {
-                orders[index].paymentStatus = 'Paid';
-            }
-            
-            renderOrders();
-            showToast(`Order ${orders[index].id} marked as delivered.`, 'success');
-        }
-
-        // --- UI Utilities ---
-        function showToast(message, type = 'success') {
-            const toastContainer = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            
-            // Icon based on type
-            let strokeColor = 'var(--success)';
-            if (type === 'warning') strokeColor = 'var(--warning)';
-            
-            const icon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${strokeColor}" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
-                
-            toast.innerHTML = `${icon} <span>${message}</span>`;
-            
-            toastContainer.appendChild(toast);
-            
-            // Remove from DOM after animation completes
-            setTimeout(() => {
-                if (toastContainer.contains(toast)) {
-                    toastContainer.removeChild(toast);
-                }
-            }, 3000);
-        }
-
     </script>
 </body>
 </html>
