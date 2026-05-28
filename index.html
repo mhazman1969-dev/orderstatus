@@ -382,7 +382,7 @@
 
         // Simpan 2 Peniaga Sah secara eksklusif (Email & Kata Laluan untuk Padanan & Custom Profile)
         const EXCLUSIVE_PARTNERS = {
-            "peniaga1@gmail.com": { name: "Peniaga 1 (Abu)", password: "peniaga123" },
+            "hazman": { name: "Hazman", password: "admin" },
             "peniaga2@gmail.com": { name: "Peniaga 2 (Bakar)", password: "peniaga123" }
         };
 
@@ -398,7 +398,7 @@
 
             // Semak adakah email ini sebahagian daripada 2 rakan niaga sahaja
             if (!EXCLUSIVE_PARTNERS[emailInput] || EXCLUSIVE_PARTNERS[emailInput].password !== passwordInput) {
-                errorText.innerText = "Akses dilarang. Hanya email 'peniaga1@gmail.com' atau 'peniaga2@gmail.com' berserta kata laluan yang betul sahaja dibenarkan mengakses sistem.";
+                errorText.innerText = "Akses dilarang. Hanya email 'hazman' atau 'peniaga2@gmail.com' berserta kata laluan yang betul sahaja dibenarkan mengakses sistem.";
                 errorDiv.classList.remove("hidden");
                 return;
             }
@@ -774,7 +774,7 @@
                         if (!currentUser) {
                             // Sebagai fallback keselamatan jika page di-refresh
                             currentUser = {
-                                email: "peniaga1@gmail.com",
+                                email: "hazman",
                                 name: "Peniaga 1 (Abu)",
                                 uid: user.uid
                             };
