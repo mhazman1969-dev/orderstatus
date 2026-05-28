@@ -443,7 +443,33 @@ const firebaseConfig = {
             console.error("Gagal memuatkan konfigurasi Firebase, menggunakan in-memory mode.", e);
         }
 
-   
+        // In-Memory Backup database sekiranya Firebase tiada kunci API atau berlaku ralat rangkaian
+        let inMemoryDatabase = [
+            {
+                id: "demo-order-1",
+                customerName: "Ahmad Fakhrul",
+                price: 185.50,
+                address: "No 14, Jalan Dagang 3, Taman Dagang, Ampang, Selangor",
+                paymentMethod: "QR",
+                paymentStatus: "Sudah Bayar",
+                status: "Belum Dihantar",
+                createdAt: new Date().toISOString(),
+                deliveryLog: null
+            },
+            {
+                id: "demo-order-2",
+                customerName: "Siti Nurhaliza",
+                price: 240.00,
+                address: "Kondominium Mewah, Persiaran KLCC, Kuala Lumpur",
+                paymentMethod: "Tunai",
+                paymentStatus: "Belum Bayar",
+                status: "Dihantar",
+                createdAt: new Date(Date.now() - 3600000).toISOString(),
+                deliveryLog: {
+                    runner: "Peniaga 1 (peniaga1@gmail.com)",
+                    time: new Date(Date.now() - 1800000).toLocaleString('ms-MY'),
+                    location: "Kuala Lumpur (4.1357, 101.0123)"
+                }
             }
         ];
 
