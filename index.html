@@ -155,7 +155,7 @@
                     <div class="text-center space-y-2">
                         <span class="text-3xl">🔐</span>
                         <h2 class="text-2xl font-bold text-slate-900">Portal Log Masuk Eksklusif</h2>
-                        <p class="text-xs text-slate-500">Sistem ini dikunci khas. Hanya 2 peniaga berdaftar sahaja dibenarkan masuk.</p>
+                        
                     </div>
 
                     <!-- Notis Ralat Custom (Bukan alert) -->
@@ -163,22 +163,22 @@
                         <span>⚠️</span>
                         <div>
                             <strong class="font-bold block">Akses Ditolak!</strong>
-                            <span id="login-error-text">Emel atau kata laluan tidak sah atau anda bukan salah seorang daripada 2 peniaga eksklusif.</span>
+                            <span id="login-error-text">Emel atau kata laluan tidak sah.</span>
                         </div>
                     </div>
 
                     <form id="login-form" class="space-y-4" onsubmit="handleLogin(event)">
                         <div>
-                            <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Emel Peniaga</label>
+                            <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Email</label>
                             <div class="relative">
                                 <span class="absolute left-3 top-3.5 text-slate-400 text-xs">📧</span>
-                                <input id="login-email" type="email" placeholder="peniaga1@gmail.com atau peniaga2@gmail.com" required
+                                <input id="login-email" type="email" placeholder="e-mail" required
                                     class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:outline-none transition">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Kata Laluan</label>
+                            <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">password</label>
                             <div class="relative">
                                 <span class="absolute left-3 top-3.5 text-slate-400 text-xs">🔑</span>
                                 <input id="login-password" type="password" placeholder="••••••••" required
@@ -187,7 +187,7 @@
                         </div>
 
                         <button id="login-submit-btn" type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3.5 rounded-xl transition flex items-center justify-center gap-2">
-                            <span>Sahkan Identiti</span>
+                            <span>Log In</span>
                             <i data-lucide="shield-check" class="w-4 h-4"></i>
                         </button>
                     </form>
