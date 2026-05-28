@@ -410,70 +410,29 @@
         import { getFirestore, doc, setDoc, getDoc, collection, query, onSnapshot, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
 // Global Variables
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'rakan-niaga-exclusive-app';
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'rakan-niaga-exclusive-app';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDTSLH1ndEDlfiXLo7TvT4PxB4eAIovdaw",
-  authDomain: "order-status-bd55b.firebaseapp.com",
-  projectId: "order-status-bd55b",
-  storageBucket: "order-status-bd55b.firebasestorage.app",
-  messagingSenderId: "806311450965",
-  appId: "1:806311450965:web:87b96e78c72c5afe7737dc",
-  measurementId: "G-BNL8GW6H4C"
-};
+        // Guna 'let' supaya nilainya boleh diubah oleh blok try-catch di bawah
+        let firebaseConfig = {
+            apiKey: "AIzaSyDTSLH1ndEDlfiXLo7TvT4PxB4eAIovdaw",
+            authDomain: "order-status-bd55b.firebaseapp.com",
+            projectId: "order-status-bd55b",
+            storageBucket: "order-status-bd55b.firebasestorage.app",
+            messagingSenderId: "806311450965",
+            appId: "1:806311450965:web:87b96e78c72c5afe7737dc",
+            measurementId: "G-BNL8GW6H4C"
+        };
 
-
-        // Sekiranya persekitaran mengandungi pembolehubah Firebase rasmi, gunakannya.
-        // Jika tiada, kita sediakan objek konfigurasi lalai agar sistem tetap boleh berjalan dalam in-memory fallback.
+        // Memeriksa persekitaran pembolehubah rasmi dengan selamat
         try {
             if (typeof __firebase_config !== 'undefined' && __firebase_config) {
                 firebaseConfig = JSON.parse(__firebase_config);
-            } else {
-                // Konfigurasi placeholder sekiranya dijalankan di luar platform yang mempunyai config
-                firebaseConfig = {
-                    apiKey: "",
-                    authDomain: "rakanniaga-demo.firebaseapp.com",
-                    projectId: "rakanniaga-demo",
-                    storageBucket: "rakanniaga-demo.appspot.com",
-                    messagingSenderId: "1234567890",
-                    appId: "1:123456:web:abcd"
-                };
             }
         } catch (e) {
-            console.error("Gagal memuatkan konfigurasi Firebase, menggunakan in-memory mode.", e);
+            console.warn("Gagal membaca __firebase_config, menggunakan tetapan asal:", e);
         }
 
-        // In-Memory Backup database sekiranya Firebase tiada kunci API atau berlaku ralat rangkaian
-        let inMemoryDatabase = [
-            {
-                id: "demo-order-1",
-                customerName: "Ahmad Fakhrul",
-                price: 185.50,
-                address: "No 14, Jalan Dagang 3, Taman Dagang, Ampang, Selangor",
-                paymentMethod: "QR",
-                paymentStatus: "Sudah Bayar",
-                status: "Belum Dihantar",
-                createdAt: new Date().toISOString(),
-                deliveryLog: null
-            },
-            {
-                id: "demo-order-2",
-                customerName: "Siti Nurhaliza",
-                price: 240.00,
-                address: "Kondominium Mewah, Persiaran KLCC, Kuala Lumpur",
-                paymentMethod: "Tunai",
-                paymentStatus: "Belum Bayar",
-                status: "Dihantar",
-                createdAt: new Date(Date.now() - 3600000).toISOString(),
-                deliveryLog: {
-                    runner: "Peniaga 1 (peniaga1@gmail.com)",
-                    time: new Date(Date.now() - 1800000).toLocaleString('ms-MY'),
-                    location: "Kuala Lumpur (4.1357, 101.0123)"
-                }
-            }
-        ];
-
-        // Mulakan Firebase
+        // Mulakan Firebase menggunakan konfigurasi yang sah di atas
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
