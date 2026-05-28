@@ -409,9 +409,9 @@
         import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, collection, query, onSnapshot, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Global Variables
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'rakan-niaga-exclusive-app';
-        let firebaseConfig;
+// Global Variables
+const appId = typeof __app_id !== 'undefined' ? __app_id : 'rakan-niaga-exclusive-app';
+
 const firebaseConfig = {
   apiKey: "AIzaSyDTSLH1ndEDlfiXLo7TvT4PxB4eAIovdaw",
   authDomain: "order-status-bd55b.firebaseapp.com",
@@ -420,9 +420,7 @@ const firebaseConfig = {
   messagingSenderId: "806311450965",
   appId: "1:806311450965:web:87b96e78c72c5afe7737dc",
   measurementId: "G-BNL8GW6H4C"
-
 };
-
 
 
         // Sekiranya persekitaran mengandungi pembolehubah Firebase rasmi, gunakannya.
