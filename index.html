@@ -6,9 +6,7 @@
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
     <title>RakanNiaga Hub - Sistem Pengurusan Eksklusif</title>
-    <!-- Tailwind CSS untuk reka bentuk yang pantas, responsif & moden -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons untuk ikon yang cantik -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -34,12 +32,11 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
-    <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="bg-indigo-600 p-2 rounded-xl text-white shadow-md shadow-indigo-100">
-                    <i data-lucide="coffe" class="w-6 h-6">🏢</i>
+                    <span class="w-6 h-6 block text-center line-height-none">🏢</span>
                 </div>
                 <div>
                     <span class="font-bold text-lg tracking-tight bg-gradient-to-r bg-clip-text text-transparent from-indigo-600 to-violet-600">RakanNiaga</span>
@@ -52,17 +49,15 @@
                     Peniaga: <span id="active-user-name">-</span>
                 </span>
                 <button id="nav-action-btn" onclick="scrollToSection('login-section')" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition duration-200 shadow-lg shadow-indigo-100 flex items-center gap-2">
-                    <i data-lucide="log-in" class="w-4 h-4"></i> Log Masuk
+                    Log Masuk
                 </button>
             </nav>
         </div>
     </header>
 
     <main class="flex-grow">
-        <!-- LANDING PAGE SECTION -->
         <section id="landing-section" class="py-12 md:py-20 px-4 max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <!-- Copywriting & Keterangan -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-100">
                         <span class="w-1.5 h-1.5 rounded-full bg-indigo-600"></span>
@@ -73,10 +68,9 @@
                         <span class="bg-gradient-to-r bg-clip-text text-transparent from-indigo-600 via-purple-600 to-indigo-700">Lebih Pantas & Sistematik</span>
                     </h1>
                     <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        Platform pengurusan pesanan eksklusif yang direka khas untuk memudahkan komunikasi, pemantauan pembayaran, dan log penghantaran masa-nyata bagi dua rakan kongsi perniagaan.
+                        Platform pengurusan pesanan eksklusif yang direka khas untuk memudahkan komunikasi, pemantauan pembayaran, and log penghantaran masa-nyata bagi dua rakan kongsi perniagaan.
                     </p>
                     
-                    <!-- Ciri Utama Mini Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-left max-w-xl mx-auto lg:mx-0">
                         <div class="p-4 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-start gap-3">
                             <span class="text-indigo-600 text-xl bg-indigo-50 p-2 rounded-lg">📋</span>
@@ -103,16 +97,14 @@
 
                     <div class="pt-2">
                         <button onclick="scrollToSection('login-section')" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3.5 rounded-xl transition shadow-lg shadow-slate-200">
-                            Akses Sistem Sekarang <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            Akses Sistem Sekarang
                         </button>
                     </div>
                 </div>
 
-                <!-- Visual Khas / Mockup -->
                 <div class="lg:col-span-5 relative">
                     <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-indigo-500 to-purple-500 opacity-20 blur-xl"></div>
                     <div class="relative bg-white rounded-3xl border border-slate-100 shadow-xl p-6 space-y-6">
-                        <!-- Preview Mini Dashboard -->
                         <div class="flex items-center justify-between border-b border-slate-100 pb-4">
                             <div class="flex items-center gap-2">
                                 <span class="w-3 h-3 rounded-full bg-red-400"></span>
@@ -134,7 +126,7 @@
                             <div class="p-3 bg-emerald-50/50 rounded-xl flex justify-between items-center">
                                 <div>
                                     <span class="text-xs text-emerald-600 font-bold block">PENGHANTARAN AKTIF</span>
-                                    <span class="text-sm font-semibold text-slate-800">Dihantar oleh: Peniaga A</span>
+                                    <span class="text-sm font-semibold text-slate-800">Dihantar oleh: Peniaga 1</span>
                                 </div>
                                 <span class="px-2 py-1 text-xs font-bold rounded bg-emerald-100 text-emerald-800">Dihantar</span>
                             </div>
@@ -148,7 +140,6 @@
             </div>
         </section>
 
-        <!-- LOGIN SECTION (Tersorok apabila sudah log masuk) -->
         <section id="login-section" class="py-12 bg-slate-100 border-y border-slate-200">
             <div class="max-w-md mx-auto px-4">
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-8 space-y-6">
@@ -158,7 +149,6 @@
                         <p class="text-xs text-slate-500">Sistem ini dikunci khas. Hanya 2 peniaga berdaftar sahaja dibenarkan masuk.</p>
                     </div>
 
-                    <!-- Notis Ralat Custom (Bukan alert) -->
                     <div id="login-error" class="hidden p-3.5 bg-red-50 border border-red-200 rounded-xl text-red-700 text-xs flex items-start gap-2">
                         <span>⚠️</span>
                         <div>
@@ -167,7 +157,7 @@
                         </div>
                     </div>
 
-                    <form id="login-form" class="space-y-4" onsubmit="handleLogin(event)">
+                    <form id="login-form" class="space-y-4" onsubmit="window.handleLogin(event)">
                         <div>
                             <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Emel Peniaga</label>
                             <div class="relative">
@@ -188,11 +178,9 @@
 
                         <button id="login-submit-btn" type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3.5 rounded-xl transition flex items-center justify-center gap-2">
                             <span>Sahkan Identiti</span>
-                            <i data-lucide="shield-check" class="w-4 h-4"></i>
                         </button>
                     </form>
 
-                    <!-- Hint Demo untuk Kemudahan Menguji -->
                     <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-900 text-xs">
                         <strong class="block mb-1">💡 Maklumat Akses Demo (2 Peniaga Sah):</strong>
                         <ul class="list-disc pl-4 space-y-1">
@@ -204,9 +192,7 @@
             </div>
         </section>
 
-        <!-- SYSTEM DASHBOARD (Hanya ditunjukkan selepas berjaya log masuk) -->
-        <section id="system-dashboard" class="hidden py-12 px-4 max-w-7xl mx-auto space-y-8 animate-fade-in">
-            <!-- Tajuk Dashboard & Butang Keluar -->
+        <section id="system-dashboard" class="hidden py-12 px-4 max-w-7xl mx-auto space-y-8">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-indigo-900 text-white p-6 rounded-2xl gap-4 shadow-xl">
                 <div>
                     <h2 class="text-2xl font-extrabold flex items-center gap-2">
@@ -214,12 +200,11 @@
                     </h2>
                     <p class="text-sm text-indigo-200">Sesi Aktif: Anda sedang menguruskan keseluruhan sistem.</p>
                 </div>
-                <button onclick="handleLogout()" class="bg-red-500/20 hover:bg-red-500/30 text-red-200 hover:text-white border border-red-500/30 text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2 self-end sm:self-auto">
-                    <i data-lucide="log-out" class="w-4 h-4"></i> Log Keluar
+                <button onclick="window.handleLogout()" class="bg-red-500/20 hover:bg-red-500/30 text-red-200 hover:text-white border border-red-500/30 text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2 self-end sm:self-auto">
+                    Log Keluar
                 </button>
             </div>
 
-            <!-- Kad Statistik Ringkas -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
                     <span class="text-3xl bg-indigo-50 p-3 rounded-xl">📊</span>
@@ -251,10 +236,7 @@
                 </div>
             </div>
 
-            <!-- Grid: Borang Pendaftaran & Senarai Pesanan -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                
-                <!-- KIRI: Borang Pendaftaran Pesanan Baru -->
                 <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-100 shadow-md p-6 space-y-6 self-start">
                     <div class="border-b border-slate-100 pb-4">
                         <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
@@ -263,7 +245,6 @@
                         <p class="text-xs text-slate-500">Sila masukkan butiran lengkap pesanan pelanggan.</p>
                     </div>
 
-                    <!-- Notis Kejayaan Custom -->
                     <div id="order-success-notis" class="hidden p-3.5 bg-green-50 border border-green-200 rounded-xl text-green-700 text-xs flex items-center gap-2">
                         <span>✨</span>
                         <div>
@@ -271,7 +252,7 @@
                         </div>
                     </div>
 
-                    <form id="order-form" class="space-y-4" onsubmit="handleRegisterOrder(event)">
+                    <form id="order-form" class="space-y-4" onsubmit="window.handleRegisterOrder(event)">
                         <div>
                             <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Nama Pelanggan</label>
                             <input id="order-customer-name" type="text" placeholder="Contoh: Muhammad Ali" required
@@ -308,13 +289,11 @@
                         </div>
 
                         <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-100">
-                            <i data-lucide="plus-circle" class="w-4 h-4"></i>
                             <span>Daftar Pesanan</span>
                         </button>
                     </form>
                 </div>
 
-                <!-- KANAN: Senarai Keseluruhan Pesanan -->
                 <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-100 shadow-md p-6 space-y-6">
                     <div class="flex justify-between items-center border-b border-slate-100 pb-4">
                         <div>
@@ -323,26 +302,22 @@
                             </h3>
                             <p class="text-xs text-slate-500">Semua pesanan yang didaftarkan dalam sistem.</p>
                         </div>
-                        <button onclick="fetchOrders()" class="p-2 text-slate-500 hover:text-indigo-600 hover:bg-slate-50 rounded-xl transition border border-slate-100" title="Muat semula">
+                        <button onclick="window.fetchOrders()" class="p-2 text-slate-500 hover:text-indigo-600 hover:bg-slate-50 rounded-xl transition border border-slate-100" title="Muat semula">
                             🔄
                         </button>
                     </div>
 
-                    <!-- List container -->
                     <div id="orders-list-container" class="space-y-4 max-h-[600px] overflow-y-auto pr-2">
-                        <!-- Loading State -->
                         <div class="text-center py-12 text-slate-400 text-sm space-y-2">
                             <span class="inline-block animate-spin text-2xl">🌀</span>
                             <p>Sistem sedang memuatkan rekod pesanan...</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-slate-900 text-slate-400 text-xs py-8 mt-12 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
             <p class="font-bold text-slate-300">RakanNiaga Hub - Hak Cipta Terpelihara © 2026</p>
@@ -352,10 +327,9 @@
         </div>
     </footer>
 
-    <!-- MODAL PENAL LOG LOKASI (Ditunjukkan apabila klik butang "Hantar") -->
     <div id="delivery-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 space-y-6 shadow-2xl relative border border-slate-100">
-            <button onclick="closeDeliveryModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-lg">✕</button>
+            <button onclick="window.closeDeliveryModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-lg">✕</button>
             
             <div class="space-y-2">
                 <span class="text-2xl">🚚</span>
@@ -368,8 +342,7 @@
                 <p><strong>Alamat:</strong> <span id="modal-cust-address">-</span></p>
             </div>
 
-            <!-- Form Log Penghantaran -->
-            <form id="delivery-form" class="space-y-4" onsubmit="submitDeliveryLog(event)">
+            <form id="delivery-form" class="space-y-4" onsubmit="window.submitDeliveryLog(event)">
                 <input type="hidden" id="modal-order-id">
                 
                 <div>
@@ -387,7 +360,7 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-600 uppercase mb-1 flex justify-between items-center">
                         <span>Log Lokasi Semasa</span>
-                        <button type="button" onclick="detectLocation()" class="text-indigo-600 hover:underline text-[10px] font-bold">📍 Kesan GPS</button>
+                        <button type="button" onclick="window.detectLocation()" class="text-indigo-600 hover:underline text-[10px] font-bold">📍 Kesan GPS</button>
                     </label>
                     <input id="delivery-location" type="text" placeholder="Contoh: Bandar Baru, Bangi" required
                         class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:outline-none transition">
@@ -401,18 +374,22 @@
         </div>
     </div>
 
+    <script>
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 
-    <!-- FIREBASE SDK & LOGIK SISTEM -->
-    <!-- Mengimport Firebase secara terus dari cdnjs gstatic (Firebase v11) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, collection, query, onSnapshot, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-// Global Variables
+        // Global Variables & Fallback Data
+        window.inMemoryDatabase = { orders: [] };
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'rakan-niaga-exclusive-app';
 
-        // Guna 'let' supaya nilainya boleh diubah oleh blok try-catch di bawah
         let firebaseConfig = {
             apiKey: "AIzaSyDTSLH1ndEDlfiXLo7TvT4PxB4eAIovdaw",
             authDomain: "order-status-bd55b.firebaseapp.com",
@@ -423,7 +400,6 @@
             measurementId: "G-BNL8GW6H4C"
         };
 
-        // Memeriksa persekitaran pembolehubah rasmi dengan selamat
         try {
             if (typeof __firebase_config !== 'undefined' && __firebase_config) {
                 firebaseConfig = JSON.parse(__firebase_config);
@@ -432,21 +408,14 @@
             console.warn("Gagal membaca __firebase_config, menggunakan tetapan asal:", e);
         }
 
-        // Mulakan Firebase menggunakan konfigurasi yang sah di atas
+        // Mulakan Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // State Pengguna Semasa
         let currentUser = null;
-        let isFirebaseAvailable = false;
+        let isFirebaseAvailable = !!firebaseConfig.apiKey;
 
-        // Semak status konfigurasi firebase
-        if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "") {
-            isFirebaseAvailable = true;
-        }
-
-        // Simpan 2 Peniaga Sah secara eksklusif (Email & Kata Laluan untuk Padanan & Custom Profile)
         const EXCLUSIVE_PARTNERS = {
             "peniaga1@gmail.com": { name: "Peniaga 1 (Abu)", password: "peniaga123" },
             "peniaga2@gmail.com": { name: "Peniaga 2 (Bakar)", password: "peniaga123" }
@@ -454,7 +423,7 @@
 
         // 1. PENGESAHAN IDENTITI (AUTH)
         window.handleLogin = async function(event) {
-            event.preventDefault();
+            if (event) event.preventDefault();
             const emailInput = document.getElementById("login-email").value.trim().toLowerCase();
             const passwordInput = document.getElementById("login-password").value;
             const errorDiv = document.getElementById("login-error");
@@ -462,9 +431,8 @@
 
             errorDiv.classList.add("hidden");
 
-            // Semak adakah email ini sebahagian daripada 2 rakan niaga sahaja
             if (!EXCLUSIVE_PARTNERS[emailInput] || EXCLUSIVE_PARTNERS[emailInput].password !== passwordInput) {
-                errorText.innerText = "Akses dilarang. Hanya email 'peniaga1@gmail.com' atau 'peniaga2@gmail.com' berserta kata laluan yang betul sahaja dibenarkan mengakses sistem.";
+                errorText.innerText = "Akses dilarang. Hanya email sah duo rakan kongsi sahaja dibenarkan.";
                 errorDiv.classList.remove("hidden");
                 return;
             }
@@ -473,20 +441,13 @@
 
             if (isFirebaseAvailable) {
                 try {
-                    // Cuba log masuk Firebase secara selamat
-                    // Memandangkan ini adalah sistem duo kawalan dalaman, kita boleh jalankan Anonymous Auth atau Custom Token
-                    // Sebagai amalan terbaik, kita laksanakan log masuk berasaskan customToken sekiranya tersedia, atau fallback anonymous
-                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
+                    // Selesaikan ralat admin-restricted menggunakan Anonymous login dengan stabil
+                    await signInAnonymously(auth);
                 } catch (error) {
-                    console.warn("Ralat Firebase Auth, beralih ke mod simulasi sesi.", error);
+                    console.warn("Ralat Firebase Auth, bertukar ke sandaran sesi tempatan.", error);
                 }
             }
 
-            // Simpan Sesi Sempurna secara Tempatan (Sama ada Firebase aktif atau dalam mod standalone sandbox)
             currentUser = {
                 email: emailInput,
                 name: partnerInfo.name,
@@ -494,21 +455,19 @@
             };
 
             updateUISession(true);
-            fetchOrders();
-            scrollToSection('system-dashboard');
+            window.fetchOrders();
+            const devDashboard = document.getElementById('system-dashboard');
+            if (devDashboard) devDashboard.scrollIntoView({ behavior: 'smooth' });
         };
 
         window.handleLogout = async function() {
             if (isFirebaseAvailable) {
-                try {
-                    await signOut(auth);
-                } catch (e) {
-                    console.error(e);
-                }
+                try { await signOut(auth); } catch (e) { console.error(e); }
             }
             currentUser = null;
             updateUISession(false);
-            scrollToSection('landing-section');
+            const devLanding = document.getElementById('landing-section');
+            if (devLanding) devLanding.scrollIntoView({ behavior: 'smooth' });
         };
 
         function updateUISession(isLoggedIn) {
@@ -524,337 +483,51 @@
                 userDisplay.classList.remove("hidden");
                 userDisplay.classList.add("flex");
                 activeUserName.innerText = currentUser.name;
-                
-                navActionBtn.innerHTML = `<span class="flex items-center gap-1">🏢 Sistem Aktif</span>`;
-                navActionBtn.onclick = () => scrollToSection('system-dashboard');
-                navActionBtn.className = "bg-emerald-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition shadow-lg shadow-emerald-100 flex items-center gap-2";
+                navActionBtn.innerHTML = `🏢 Sistem Aktif`;
+                navActionBtn.onclick = null;
             } else {
                 loginSection.classList.remove("hidden");
                 systemDashboard.classList.add("hidden");
                 userDisplay.classList.add("hidden");
                 userDisplay.classList.remove("flex");
-                
-                navActionBtn.innerHTML = `<i data-lucide="log-in" class="w-4 h-4"></i> Log Masuk`;
-                navActionBtn.onclick = () => scrollToSection('login-section');
-                navActionBtn.className = "bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition duration-200 shadow-lg shadow-indigo-100 flex items-center gap-2";
+                navActionBtn.innerHTML = `Log Masuk`;
+                navActionBtn.onclick = () => {
+                    const el = document.getElementById('login-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                };
             }
         }
 
-        // 2. DAFTAR PESANAN BARU (WRITE TO FIRESTORE / MEMORY)
-        window.handleRegisterOrder = async function(event) {
-            event.preventDefault();
-            if (!currentUser) return;
-
-            const customerName = document.getElementById("order-customer-name").value.trim();
-            const price = parseFloat(document.getElementById("order-price").value);
-            const address = document.getElementById("order-address").value.trim();
-            const paymentMethod = document.getElementById("order-payment-method").value;
-            const paymentStatus = document.getElementById("order-payment-status").value;
-
-            const orderData = {
-                customerName: customerName,
-                price: price,
-                address: address,
-                paymentMethod: paymentMethod,
-                paymentStatus: paymentStatus,
-                status: "Belum Dihantar",
-                createdAt: new Date().toISOString(),
-                deliveryLog: null,
-                createdBy: currentUser.name
-            };
-
-            const notis = document.getElementById("order-success-notis");
-
-            if (isFirebaseAvailable && auth.currentUser) {
-                try {
-                    // Gunakan PATH yang sah mengikut Rule 1
-                    // Public data: /artifacts/{appId}/public/data/{collectionName}
-                    const collectionRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
-                    await addDoc(collectionRef, orderData);
-                } catch (error) {
-                    console.error("Ralat menyimpan ke Firestore. Menyimpan secara in-memory sahaja.", error);
-                    saveToMemory(orderData);
-                }
-            } else {
-                saveToMemory(orderData);
-            }
-
-            // Papar notis kejayaan
-            notis.classList.remove("hidden");
-            document.getElementById("order-form").reset();
-            setTimeout(() => notis.classList.add("hidden"), 4000);
-
-            fetchOrders();
-        };
-
-        function saveToMemory(order) {
-            const newOrder = {
-                id: "local-" + Date.now(),
-                ...order
-            };
-            inMemoryDatabase.unshift(newOrder);
-        }
-
-        // 3. AMBIL DATA PESANAN (READ FROM FIRESTORE / MEMORY - Rule 2: Tiada Query Kompleks)
+        // 2. FIRESTORE REAL-TIME DATA STREAM
         window.fetchOrders = function() {
             const container = document.getElementById("orders-list-container");
-
-            if (isFirebaseAvailable && auth.currentUser) {
-                try {
-                    const collectionRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
-                    // Menggunakan onSnapshot untuk pembasuhan masa-nyata tanpa Query kompleks (Sesuai dengan Rule 2)
-                    onSnapshot(collectionRef, (snapshot) => {
-                        let orders = [];
-                        snapshot.forEach((doc) => {
-                            orders.push({ id: doc.id, ...doc.data() });
-                        });
-                        
-                        // Buat susunan isihan mengikut tarikh cipta secara manual di memori (mengelakkan error index Firestore)
-                        orders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-                        
-                        renderOrdersList(orders);
-                        calculateStatistics(orders);
-                    }, (error) => {
-                        console.error("Gagal mendapatkan snapshot data, menggunakan local database.", error);
-                        renderOrdersList(inMemoryDatabase);
-                        calculateStatistics(inMemoryDatabase);
-                    });
-                } catch (e) {
-                    renderOrdersList(inMemoryDatabase);
-                    calculateStatistics(inMemoryDatabase);
-                }
-            } else {
-                // Render data dari simulasi memori
-                renderOrdersList(inMemoryDatabase);
-                calculateStatistics(inMemoryDatabase);
-            }
-        };
-
-        // 4. PAPAR SENARAI PESANAN & INTERAKSI UI
-        function renderOrdersList(orders) {
-            const container = document.getElementById("orders-list-container");
-            if (orders.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-12 text-slate-400">
-                        <span class="text-3xl block mb-2">📭</span>
-                        <p class="font-medium">Tiada pesanan didaftarkan lagi.</p>
-                        <p class="text-xs">Sila isi borang pendaftaran di sebelah kiri.</p>
-                    </div>
-                `;
+            if (!isFirebaseAvailable) {
+                renderOrders(window.inMemoryDatabase.orders);
                 return;
             }
 
-            container.innerHTML = orders.map(order => {
-                const isPaid = order.paymentStatus === "Sudah Bayar";
-                const isShipped = order.status === "Dihantar";
-                
-                const badgePaymentColor = isPaid ? "bg-emerald-100 text-emerald-800" : "bg-red-100 text-red-800";
-                const badgeStatusColor = isShipped ? "bg-blue-100 text-blue-800" : "bg-yellow-100 text-yellow-800";
-                
-                return `
-                    <div class="p-5 bg-slate-50 hover:bg-slate-100/70 border border-slate-200/60 rounded-2xl transition duration-200 space-y-4">
-                        <div class="flex justify-between items-start gap-2">
-                            <div>
-                                <h4 class="font-bold text-slate-900 text-base">${order.customerName}</h4>
-                                <p class="text-[11px] text-slate-400">Didaftar pada: ${new Date(order.createdAt).toLocaleString('ms-MY')}</p>
-                            </div>
-                            <span class="text-lg font-extrabold text-indigo-600">RM ${parseFloat(order.price).toFixed(2)}</span>
-                        </div>
-
-                        <div class="text-xs text-slate-600 space-y-1 bg-white p-3 rounded-xl border border-slate-100">
-                            <p class="flex gap-1"><span class="font-bold text-slate-700 min-w-[70px]">📍 Alamat:</span> <span>${order.address}</span></p>
-                            <p class="flex gap-1"><span class="font-bold text-slate-700 min-w-[70px]">💳 Kaedah:</span> <span>${order.paymentMethod}</span></p>
-                        </div>
-
-                        <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
-                            <div class="flex items-center gap-2">
-                                <span class="px-2.5 py-1 text-[11px] font-bold rounded-lg ${badgePaymentColor}">${order.paymentStatus}</span>
-                                <span class="px-2.5 py-1 text-[11px] font-bold rounded-lg ${badgeStatusColor}">${order.status}</span>
-                            </div>
-
-                            <div class="flex items-center gap-2">
-                                ${!isPaid ? `
-                                    <button onclick="togglePaymentStatus('${order.id}', '${order.paymentStatus}')" class="text-xs font-semibold px-3 py-1.5 bg-slate-200 hover:bg-emerald-100 text-slate-700 hover:text-emerald-800 rounded-lg transition">
-                                        Set "Sudah Bayar"
-                                    </button>
-                                ` : ''}
-
-                                ${!isShipped ? `
-                                    <button onclick="openDeliveryModal('${order.id}', '${order.customerName.replace(/'/g, "\\'")}', '${order.address.replace(/'/g, "\\'")}')" class="text-xs font-bold px-4 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition flex items-center gap-1.5">
-                                        🚚 Set Dihantar
-                                    </button>
-                                ` : ''}
-                            </div>
-                        </div>
-
-                        ${isShipped && order.deliveryLog ? `
-                            <div class="mt-2 p-3 bg-indigo-50 border border-indigo-100 rounded-xl text-[11px] text-slate-700 space-y-1">
-                                <p class="font-bold text-indigo-900 flex items-center gap-1">📍 Rekod Log Penghantaran:</p>
-                                <p><strong>Penghantar:</strong> ${order.deliveryLog.runner}</p>
-                                <p><strong>Masa:</strong> ${order.deliveryLog.time}</p>
-                                <p><strong>Lokasi / GPS:</strong> ${order.deliveryLog.location}</p>
-                            </div>
-                        ` : ''}
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // 5. KIRA & PAPAR KAD STATISTIK
-        function calculateStatistics(orders) {
-            const totalOrders = orders.length;
-            const totalSales = orders.reduce((sum, order) => sum + parseFloat(order.price || 0), 0);
-            const pendingDelivery = orders.filter(order => order.status !== "Dihantar").length;
-            const completedDelivery = orders.filter(order => order.status === "Dihantar").length;
-
-            document.getElementById("stat-total-orders").innerText = totalOrders;
-            document.getElementById("stat-total-sales").innerText = "RM " + totalSales.toFixed(2);
-            document.getElementById("stat-pending-delivery").innerText = pendingDelivery;
-            document.getElementById("stat-completed-delivery").innerText = completedDelivery;
-        }
-
-        // 6. EDIT STATUS PEMBAYARAN (QR / CASH)
-        window.togglePaymentStatus = async function(orderId, currentStatus) {
-            if (!currentUser) return;
-            const nextStatus = currentStatus === "Sudah Bayar" ? "Belum Bayar" : "Sudah Bayar";
-
-            if (isFirebaseAvailable && auth.currentUser) {
-                try {
-                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'orders', orderId);
-                    await updateDoc(docRef, { paymentStatus: nextStatus });
-                } catch (e) {
-                    updateLocalPaymentStatus(orderId, nextStatus);
-                }
-            } else {
-                updateLocalPaymentStatus(orderId, nextStatus);
-            }
-            fetchOrders();
-        };
-
-        function updateLocalPaymentStatus(id, nextStatus) {
-            const index = inMemoryDatabase.findIndex(o => o.id === id);
-            if (index !== -1) {
-                inMemoryDatabase[index].paymentStatus = nextStatus;
-            }
-        }
-
-        // 7. MODAL LOG PENGHANTARAN & LOKASI GPS (MEREKOD NAMA PENIAGA & LOKASI & MASA)
-        window.openDeliveryModal = function(id, name, address) {
-            if (!currentUser) return;
-            
-            document.getElementById("modal-order-id").value = id;
-            document.getElementById("modal-cust-name").innerText = name;
-            document.getElementById("modal-cust-address").innerText = address;
-            
-            // Set maklumat peniaga penghantar automatik mengikut sesi log masuk
-            document.getElementById("delivery-runner").value = currentUser.name + " (" + currentUser.email + ")";
-            document.getElementById("delivery-time").value = new Date().toLocaleString('ms-MY');
-            document.getElementById("delivery-location").value = "";
-
-            document.getElementById("delivery-modal").classList.remove("hidden");
-        };
-
-        window.closeDeliveryModal = function() {
-            document.getElementById("delivery-modal").classList.add("hidden");
-        };
-
-        // Fungsi Kesan Lokasi Nyata (GPS)
-        window.detectLocation = function() {
-            const locationInput = document.getElementById("delivery-location");
-            locationInput.value = "Sedang mengesan kedudukan GPS...";
-            
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        const lat = position.coords.latitude.toFixed(4);
-                        const lon = position.coords.longitude.toFixed(4);
-                        locationInput.value = `Koordinat GPS (${lat}, ${lon})`;
-                    },
-                    (error) => {
-                        locationInput.value = "GPS Gagal dikesan (Sila masukkan nama bandar/kawasan)";
-                    },
-                    { timeout: 7000 }
-                );
-            } else {
-                locationInput.value = "Sokongan GPS tidak tersedia (Masukkan manual)";
-            }
-        };
-
-        // Hantar Log Penghantaran Rasmi
-        window.submitDeliveryLog = async function(event) {
-            event.preventDefault();
-            if (!currentUser) return;
-
-            const orderId = document.getElementById("modal-order-id").value;
-            const runner = document.getElementById("delivery-runner").value;
-            const time = document.getElementById("delivery-time").value;
-            const location = document.getElementById("delivery-location").value;
-
-            const logData = {
-                status: "Dihantar",
-                deliveryLog: {
-                    runner: runner,
-                    time: time,
-                    location: location
-                }
-            };
-
-            if (isFirebaseAvailable && auth.currentUser) {
-                try {
-                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'orders', orderId);
-                    await updateDoc(docRef, logData);
-                } catch (e) {
-                    updateLocalDelivery(orderId, logData);
-                }
-            } else {
-                updateLocalDelivery(orderId, logData);
-            }
-
-            closeDeliveryModal();
-            fetchOrders();
-        };
-
-        function updateLocalDelivery(id, log) {
-            const index = inMemoryDatabase.findIndex(o => o.id === id);
-            if (index !== -1) {
-                inMemoryDatabase[index].status = log.status;
-                inMemoryDatabase[index].deliveryLog = log.deliveryLog;
-            }
-        }
-
-        // Bantuan Skrol Halaman
-        window.scrollToSection = function(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        };
-
-        // Permulaan awal laman web
-        window.onload = function() {
-            // Mula-mula, tunjukkan landing page
-            updateUISession(false);
-            
-            // On auth listener jika firebase berfungsi
-            if (isFirebaseAvailable) {
-                onAuthStateChanged(auth, (user) => {
-                    if (user) {
-                        // Sesi Firebase wujud, semak adakah kita sudah set partner tempatan
-                        if (!currentUser) {
-                            // Sebagai fallback keselamatan jika page di-refresh
-                            currentUser = {
-                                email: "peniaga1@gmail.com",
-                                name: "Peniaga 1 (Abu)",
-                                uid: user.uid
-                            };
-                        }
-                        updateUISession(true);
-                        fetchOrders();
-                    } else {
-                        updateUISession(false);
-                    }
+            try {
+                const q = query(collection(db, "orders"));
+                onSnapshot(q, (querySnapshot) => {
+                    const orders = [];
+                    querySnapshot.forEach((doc) => {
+                        orders.push({ id: doc.id, ...doc.data() });
+                    });
+                    
+                    // Isih mengikut susunan masa terkini di atas
+                    orders.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+                    
+                    window.inMemoryDatabase.orders = orders;
+                    renderOrders(orders);
+                    calculateStats(orders);
+                }, (error) => {
+                    console.error("Firestore Error:", error);
+                    renderOrders(window.inMemoryDatabase.orders);
                 });
-            } else {
-                console.log("Firebase tidak dikesan, menjalankan sistem dalam Mod Simulasi Tempatan (In-Memory). Sila gunakan butang log masuk yang disediakan!");
+            } catch (err) {
+                console.error(err);
+                renderOrders(window.inMemoryDatabase.orders);
             }
         };
-    </script>
-</body>
-</html>
+
+        //
